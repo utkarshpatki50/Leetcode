@@ -1,11 +1,17 @@
-class Solution {
-public:
-    bool checkPerfectNumber(int num) {
-        long long sum=0;
-        for(int i=1; i<=num/2; i++){
-            if(num%i == 0)
-                sum+=i;
+class Solution
+{
+    public:
+        bool checkPerfectNumber(int num)
+        {
+            int count = 0;
+            for (int i = 1; i < num; i++)
+            {
+                if (num % i == 0)
+                    count += i;
+            }
+            if (num == count)
+                return true;
+            else
+                return false;
         }
-        return num==sum;
-    }
 };
