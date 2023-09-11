@@ -1,23 +1,19 @@
 class Solution
 {
     public:
-        int fun(int n, vector<int> &dp)
+        int climbStairs(int n)
         {
-            if (n <= 1)
+            if (n == 0 || n == 1)
+            {
                 return 1;
-            if (dp[n] != -1)
-                return dp[n];
-
-            int l = fun(n - 1, dp);
-            int r = fun(n - 2, dp);
-
-            return dp[n] = l + r;
+            }
+            int prev = 1, prev2 = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                int curi = prev + prev2;
+                prev2 = prev;
+                prev = curi;
+            }
+            return prev;
         }
-
-    int climbStairs(int n)
-    {
-        vector<int> dp(n + 1, -1);
-        int ans = fun(n, dp);
-        return ans;
-    }
 };
