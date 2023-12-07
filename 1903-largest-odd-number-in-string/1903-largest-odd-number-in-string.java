@@ -1,13 +1,12 @@
 class Solution {
+
     public String largestOddNumber(String num) {
-        String ans = "";
-        int len = num.length() - 1;
-        for (int i = len; i >= 0; i--) {
-            char ch = num.charAt(i);
-            if (Character.getNumericValue(ch) % 2 != 0) {
+        int n = num.length();
+        for (int i = n - 1; i >= 0; i--) {
+            int dig = num.charAt(i);
+            if (dig % 2 != 0)
                 return num.substring(0, i + 1);
-            }
         }
-        return ans;
+        return "";
     }
 }
